@@ -12,9 +12,21 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/maxpoint.png
 name: MaxPoint
-description: 'MaxPoint is a company surfaced as a portfolio company of trinity-ventures and added to the
-  API Evangelist network as a stub for enrichment. Sector: marketing. This profile is a lead awaiting
-  the enrichment pipeline.'
+description: >-
+  MaxPoint (MaxPoint Interactive, Inc.) was a Morrisville, North Carolina marketing
+  technology company that built a hyperlocal programmatic advertising platform,
+  matching neighborhood-level ("Digital Zip") consumer intelligence to online media
+  buys so brands and retailers could tie digital advertising to in-store sales. It
+  was funded by Trinity Ventures among others, went public on the NYSE as MXPT in
+  March 2015, and was acquired by Valassis Communications in August 2017 for roughly
+  $95 million, where it was folded into Valassis Digital. Valassis was later unified
+  under the Vericast brand, which divested its adtech business in 2024. MaxPoint no
+  longer operates as an independent company or product line: maxpoint.com and
+  maxpointinteractive.com are dead hosts returning HTTP 403 on every path with a
+  mismatched TLS certificate, api./developer./docs.maxpoint.com do not resolve, the
+  github.com/maxpoint organization is empty and forwards to a handle now owned by an
+  unrelated company, and valassisdigital.com is NXDOMAIN. There is no public API,
+  developer program, or machine-readable contract to profile.
 url: https://raw.githubusercontent.com/api-evangelist/maxpoint/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -24,13 +36,46 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-08-13'
 tags:
 - Company
 - Marketing
+- Advertising
+- AdTech
+- Programmatic Advertising
+- Retail Media
+- Acquired
+- Defunct
 apis: []
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+x-enrichment:
+  date: '2026-08-13'
+  status: nochange
+  artifacts_added: 1
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: defunct
+  detail: >-
+    MaxPoint Interactive was acquired by Valassis in August 2017 and the brand was
+    retired inside Valassis Digital/Vericast; maxpoint.com and maxpointinteractive.com
+    now resolve to a parked host at 209.59.188.22 that answers a bare Apache 403
+    Forbidden on every path including "/" and /robots.txt, and the github.com/maxpoint
+    organization has 0 public repos and forwards to a handle since reclaimed by an
+    unrelated company.
+  evidence:
+  - url: https://maxpoint.com/
+    status: 403
+  - url: https://maxpoint.com/.well-known/security.txt
+    status: 403
+  - url: https://maxpoint.com/openapi.json
+    status: 403
+  - url: https://maxpointinteractive.com/
+    status: 403
+  - url: https://api.github.com/orgs/maxpoint
+    status: 200
+  checked: '2026-08-13'
