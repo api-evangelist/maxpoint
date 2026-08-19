@@ -1,0 +1,141 @@
+generated: '2026-08-13'
+method: probed
+source: https://maxpoint.com/.well-known/
+note: >-
+  Every /.well-known/ path on every MaxPoint host answers HTTP 403 from a bare Apache
+  "Forbidden" error page (358 bytes, text/html; charset=iso-8859-1) — the whole domain
+  does, including "/" and /robots.txt. maxpoint.com and maxpointinteractive.com both
+  resolve to 209.59.188.22 behind Cloudflare nameservers and present a TLS certificate
+  that does not match either hostname. This is a dead/parked host, not a served
+  well-known surface. NO WellKnown or SecurityTxt pointer is emitted in apis.yml:
+  nothing here returned a document. MaxPoint Interactive was acquired by Valassis
+  (later Vericast) in August 2017 and the brand no longer operates its own web
+  property — see x-coverage in apis.yml.
+hosts:
+- host: maxpoint.com
+  reachable: false
+  http_status_root: 403
+  tls: hostname-mismatch
+- host: www.maxpoint.com
+  reachable: false
+  http_status_root: 403
+  tls: hostname-mismatch
+- host: maxpointinteractive.com
+  reachable: false
+  http_status_root: 403
+  tls: hostname-mismatch
+probes:
+- path: /.well-known/security.txt
+  url: https://maxpoint.com/.well-known/security.txt
+  status: 403
+  file: null
+- path: /.well-known/openid-configuration
+  url: https://maxpoint.com/.well-known/openid-configuration
+  status: 403
+  file: null
+- path: /.well-known/oauth-authorization-server
+  url: https://maxpoint.com/.well-known/oauth-authorization-server
+  status: 403
+  file: null
+- path: /.well-known/api-catalog
+  url: https://maxpoint.com/.well-known/api-catalog
+  status: 403
+  file: null
+- path: /.well-known/ai-plugin.json
+  url: https://maxpoint.com/.well-known/ai-plugin.json
+  status: 403
+  file: null
+- path: /.well-known/agent-card.json
+  url: https://maxpoint.com/.well-known/agent-card.json
+  status: 403
+  file: null
+- path: /.well-known/agent.json
+  url: https://maxpoint.com/.well-known/agent.json
+  status: 403
+  file: null
+- path: /.well-known/security.txt
+  url: https://www.maxpoint.com/.well-known/security.txt
+  status: 403
+  file: null
+- path: /.well-known/openid-configuration
+  url: https://www.maxpoint.com/.well-known/openid-configuration
+  status: 403
+  file: null
+- path: /.well-known/oauth-authorization-server
+  url: https://www.maxpoint.com/.well-known/oauth-authorization-server
+  status: 403
+  file: null
+- path: /.well-known/api-catalog
+  url: https://www.maxpoint.com/.well-known/api-catalog
+  status: 403
+  file: null
+- path: /.well-known/ai-plugin.json
+  url: https://www.maxpoint.com/.well-known/ai-plugin.json
+  status: 403
+  file: null
+- path: /.well-known/security.txt
+  url: https://maxpointinteractive.com/.well-known/security.txt
+  status: 403
+  file: null
+- path: /.well-known/openid-configuration
+  url: https://maxpointinteractive.com/.well-known/openid-configuration
+  status: 403
+  file: null
+- path: /.well-known/oauth-authorization-server
+  url: https://maxpointinteractive.com/.well-known/oauth-authorization-server
+  status: 403
+  file: null
+- path: /.well-known/api-catalog
+  url: https://maxpointinteractive.com/.well-known/api-catalog
+  status: 403
+  file: null
+- path: /.well-known/ai-plugin.json
+  url: https://maxpointinteractive.com/.well-known/ai-plugin.json
+  status: 403
+  file: null
+contract_discovery:
+  note: >-
+    STEP 0b contract discovery ran against every reachable MaxPoint host. No OpenAPI,
+    Swagger, GraphQL, MCP or A2A surface exists. No A2A artifact was written (search-only
+    rule: nothing hit).
+  rest_openapi:
+  - url: https://maxpoint.com/openapi.json
+    status: 403
+  - url: https://maxpoint.com/openapi.yaml
+    status: 403
+  - url: https://maxpoint.com/swagger.json
+    status: 403
+  - url: https://maxpoint.com/api-docs
+    status: 403
+  - url: https://maxpoint.com/docs
+    status: 403
+  llms_txt:
+  - url: https://maxpoint.com/llms.txt
+    status: 403
+  dns:
+  - host: api.maxpoint.com
+    result: NXDOMAIN
+  - host: developer.maxpoint.com
+    result: NXDOMAIN
+  - host: docs.maxpoint.com
+    result: NXDOMAIN
+  registries:
+  - registry: npm
+    query: maxpoint
+    result: no first-party package (only unrelated third-party matches)
+  - registry: pypi
+    package: maxpoint
+    status: 404
+  github:
+  - org: https://github.com/maxpoint
+    status: 200
+    name: MaxPoint Interactive
+    public_repos: 0
+    org_description: 'Now https://github.com/Valassis-Digital-Media'
+    note: >-
+      The real MaxPoint Interactive GitHub org exists but is empty (0 public repos) and
+      its description forwards to Valassis-Digital-Media. That handle has since been
+      reclaimed by an unrelated German company ("savi", savigermany.de), so the forward
+      is dead too. Its listed blog, valassisdigital.com, is NXDOMAIN.
+  - org: https://github.com/maxpointinteractive
+    status: 404
